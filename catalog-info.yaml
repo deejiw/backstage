@@ -1,0 +1,23 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: deejiw
+  labels:
+    idempotent: true
+  annotations:
+    github.com/project-slug: deejiw/backstage
+    github.com/team-slug: honestbank/devops-engineers
+    sonarqube.org/project-key: honestbank_mfa-service
+  tags:
+    - golang
+    - graphql
+    - user:bludot
+spec:
+  type: service
+  lifecycle: qa
+  owner: spend-squad
+  dependsOn:
+    - component:api-gateway
+    - component:core-api-lib
+    - component:default/mfa-lib
