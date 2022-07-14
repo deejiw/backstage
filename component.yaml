@@ -12,7 +12,7 @@ metadata:
     pagerduty.com/service-id: str(matches='[a-z0-9-]+', required=False)
   tags: list(str(matches='(user|language|api|idempotent|stateless):[a-z0-9-]+'))
 spec:
-  type: str(matches='service|library|workload')
+  type: str(matches='service|library')
   lifecycle: str(matches='test|dev|qa|production|deprecated')
   owner: str(matches='group:(((acquisition|spend|data|decisioning|engagement)-squad)|devops-engineers)')
   system: str(matches='[a-z-]+', required=True)
