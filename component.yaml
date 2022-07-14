@@ -1,0 +1,21 @@
+apiVersion: str(equals='backstage.io/v1alpha1')
+kind: str(equals='Component')
+metadata:
+  name: str(matches='[a-z0-9-]+')
+  namespace: str(matches='honestcard|decision-engine|etl', required=False)
+  description: str()
+  annotations:
+    github.com/project-slug: str(matches='honestbank/[a-z-]+')
+    github.com/team-slug: str(matches='honestbank\/(honestbank|android|backend|data-science|devops|l2)-engineers')
+    sonarqube.org/project-key: str(matches='honestbank_[a-z-]+', required=False)
+    grafana/tag-selector: str(matches='[a-z-]+', required=False)
+    pagerduty.com/service-id: str(matches='[a-z0-9-]+', required=False)
+  tags: list(str(matches='(user|language|api|idempotent|stateless):[a-z0-9-]+'))
+spec:
+  type: str(matches='service|library|workload')
+  lifecycle: str(matches='test|dev|qa|production|deprecated')
+  owner: str(matches='group:(((acquisition|spend|data|decisioning|engagement)-squad)|devops-engineers)')
+  system: str(matches='[a-z-]+', required=True)
+  subcomponentOf: str(matches='(resource|component):((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+', required=False)
+  providesApis: list(str(matches='((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+'), required=False)
+  dependsOn: list(str(matches='(resource|component):((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+', required=False))
