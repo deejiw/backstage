@@ -10,7 +10,7 @@ metadata:
     sonarqube.org/project-key: str(matches='honestbank_[a-z-]+', required=False)
     grafana/tag-selector: str(matches='[a-z-]+', required=False)
     pagerduty.com/service-id: str(matches='[a-z0-9-]+', required=False)
-  tags: list(str(matches='(user):[a-z0-9-]+'))
+  tags: list(str(matches='(user):[a-z0-9-]+'), required=False)
 spec:
   type: str(matches='database|storage|tf-module|tf-workspace')
   lifecycle: str(matches='test|dev|qa|production|deprecated')
