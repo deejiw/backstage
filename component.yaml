@@ -18,4 +18,5 @@ spec:
   system: str(matches='[a-z-]+', required=True)
   subcomponentOf: str(matches='(resource|component):((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+', required=False)
   providesApis: list(str(matches='((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+'), required=False)
+  consumesApis: list(str(matches='((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+'), required=False)
   dependsOn: list(str(matches='(resource|component):((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+', required=False))
