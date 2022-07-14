@@ -1,0 +1,15 @@
+apiVersion: str(equals='backstage.io/v1alpha1')
+kind: str(equals='API')
+metadata:
+  name: str(matches='[a-z0-9-]+')
+  namespace: str(matches='honestcard|decision-engine|etl', required=False)
+  description: str()
+  annotations:
+    github.com/project-slug: str(matches='honestbank/[a-z-]+')
+    github.com/team-slug: str(matches='honestbank\/(honestbank|android|backend|data-science|devops|l2)-engineers')
+spec:
+  type: str(matches='openapi|graphql')
+  lifecycle: str(matches='test|dev|qa|production|deprecated')
+  owner: str(matches='group:(((acquisition|spend|data|decisioning|engagement)-squad)|devops-engineers)')
+  system: str(matches='[a-z-]+', required=True)
+  definition: str()
