@@ -11,6 +11,7 @@ metadata:
     grafana/tag-selector: str(matches='[a-z-]+', required=False)
     pagerduty.com/service-id: str(matches='[a-z0-9-]+', required=False)
   tags: list(str(matches='(user|language|api|idempotent|stateless):[a-z0-9-]+'))
+  links: list(include('link'), required=False)
 spec:
   type: str(matches='service|library')
   lifecycle: str(matches='test|dev|qa|production|deprecated')
@@ -20,3 +21,8 @@ spec:
   providesApis: list(str(matches='((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+'), required=False)
   consumesApis: list(str(matches='((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+'), required=False)
   dependsOn: list(str(matches='(resource|component):((honestcard|decision-engine|etl|default)\/)?[a-z0-9-]+', required=False))
+---
+link:
+  title: str(matches='Grafana|Notion')
+  url: str()
+  icon: str(matches='dashboard|menubook')
